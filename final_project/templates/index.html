@@ -1,19 +1,21 @@
+<!DOCTYPE html>
 <html>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="./static/mywebscript.js"></script>
-    <div class="card">
-    <div class="card-body">
-        <div class="mb-3">
-            <label class="form-label">Text to be translated</label>
-            <input type="textarea" class="form-control" id="textToTranslate">
-        </div>
-    
-        <div style="padding: 25px 25px 25px 25px;">
-            <button onclick="translateToFrench()" class="btn btn-secondary">Translate to French</button>        
-            <button onclick="translateToEnglish()" class="btn btn-secondary">Translate to English</button>        
-        </div>
-    
-        <div id="translated_text" style="padding: 25px 25px 25px 25px;"></div>
-        </div>
-  </div>
+<head>
+	<title>Machine Translation</title>
+</head>
+<body>
+	<h2>English to French Translation</h2>
+	<form method="POST" action="{{ url_for('english_to_french_route') }}">
+		<label for="english_text">Enter English text:</label><br>
+		<input type="text" id="english_text" name="english_text"><br><br>
+		<input type="submit" value="Translate">
+	</form>
+
+	<h2>French to English Translation</h2>
+	<form method="POST" action="{{ url_for('french_to_english_route') }}">
+		<label for="french_text">Enter French text:</label><br>
+		<input type="text" id="french_text" name="french_text"><br><br>
+		<input type="submit" value="Translate">
+	</form>
+</body>
 </html>
